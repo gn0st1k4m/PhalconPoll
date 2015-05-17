@@ -11,7 +11,4 @@ Simple PHP Poll Service Built With Phalcon + MySQL + Redis
 # Install
 - Create a MySQL database named `phalcon_poll`
 - Edit configs/database.php
-- Run
-```shell
-composer.phar install
-```
+- Run `composer.phar install`
