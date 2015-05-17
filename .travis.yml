@@ -4,13 +4,13 @@ php:
   - 5.5
   - 5.6
 env:
-  - PHALCON_VERSION="2.0.1"
+  - PHALCON_VERSION="2.0.x"
 services:
   - redis-server
   - mysql
 before_script:
-  - mysql -e 'create database phalcon_poll;'
-  - mysql -e "GRANT ALL PRIVILEGES ON phalcon_poll.* TO 'phalcon_poll'@'localhost' IDENTIFIED BY '';"
+  - mysql -e 'create database phalcon_poll;' -uroot
+  - mysql -e "GRANT ALL PRIVILEGES ON phalcon_poll.* TO 'phalcon_poll'@'localhost' IDENTIFIED BY '';" -uroot
   - ./travis/install-php-extension.sh ${PHALCON_VERSION}
   - phpenv config-add travis/php.ini
   - composer install
