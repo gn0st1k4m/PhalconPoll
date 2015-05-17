@@ -20,7 +20,8 @@ class PollService extends \Phalcon\DI\Injectable
      * @param array $items
      * @throws \Phalcon\Db\Exception
      * @throws \InvalidArgumentException
-     * @return Polls
+     * @return Polls|false
+     * @todo Log rollbacks
      */
     public function create($title, array $items)
     {
@@ -34,6 +35,7 @@ class PollService extends \Phalcon\DI\Injectable
         $poll->title = $title;
         if ($poll->save() === false) {
             $this->di['db']->rollback();
+            return false;
         }
 
         foreach ($items as $item) {
@@ -43,6 +45,7 @@ class PollService extends \Phalcon\DI\Injectable
 
             if ($poll_item->save() === false) {
                 $this->di['db']->rollback();
+                return false;
             }
         }
 
