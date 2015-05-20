@@ -11,7 +11,7 @@ use PhalconPoll\Models\PollLogs;
  * @author Peter Chung <touhonoob@gmail.com>
  * @date May 15, 2015
  */
-class PollService extends \Phalcon\DI\Injectable
+class PollService extends \Phalcon\Di\Injectable
 {
 
     /**

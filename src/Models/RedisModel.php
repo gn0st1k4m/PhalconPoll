@@ -2,7 +2,7 @@
 
 namespace PhalconPoll\Models;
 
-use Phalcon\DI;
+use Phalcon\Di;
 
 /**
  * @author Peter Chung <touhonoob@gmail.com>
